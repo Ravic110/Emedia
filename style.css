@@ -2,3 +2,13 @@ h4{
     color: red;
     border: 1px solid;
 }
+
+ul{
+    display: inline-block;
+    border: 1px solid;
+    list-style-type: none
+}
+li{
+    border: 1px solid;
+    padding: 4px;
+}
