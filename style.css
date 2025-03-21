@@ -1,14 +1,136 @@
-h4{
-    color: red;
-    border: 1px solid;
+/* Grille de mise en page */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-gap: 20px;
 }
 
-ul{
-    display: inline-block;
-    border: 1px solid;
-    list-style-type: none
+/* Header */
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
 }
-li{
-    border: 1px solid;
-    padding: 4px;
+
+header nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+header nav ul li {
+    margin-right: 20px;
+}
+
+header nav a {
+    color: #fff;
+    text-decoration: none;
+}
+
+/* Main */
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+section {
+    background-color: #f7f7f7;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.text1 {
+    font-family: monospace;
+    margin-top: 0;
+    margin-left: 122px;
+    text-align: center;
+    display: inline;
+    padding: 7px;
+    border-radius: 13px;
+    border: 2px solid;
+    background-color: rgba(114, 217, 231, 0.419);
+    color: rgba(14, 19, 12, 0.997);
+}
+
+
+
+/* Médias queries */
+@media (max-width: 768px) {
+    .grid {
+        grid-template-columns: repeat(6, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.formulaire {
+    max-width: 500px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f7f7f7;
+    border: 1px solid #ddd;
+    border-radius: 29px;
+    box-shadow: 0 0 200px rgba(20, 213, 88, 0.611);
+}
+
+.champ {
+    margin-bottom: 20px;
+}
+
+.champ label {
+    display: block;
+    margin-bottom: 17px;
+    font-size: 21px;
+}
+
+.champ input, .champ textarea {
+    width: 100%;
+    height: 40px;
+    padding: 0px;
+    border: 1px solid #ccc;
+    border-radius: 25px;
+}
+
+.champ textarea {
+    height: 100px;
+    resize: vertical;
+}
+
+.champ input[type="submit"] {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+}
+
+.champ input[type="submit"]:hover {
+    background-color: #0f8a3a;
+}
+
+/* Médias queries */
+@media (max-width: 768px) {
+    .formulaire {
+        max-width: 300px;
+    }
+}
+
+@media (max-width: 480px) {
+    .formulaire {
+        max-width: 200px;
+    }
+    .champ input, .champ textarea {
+        height: 30px;
+    }
 }

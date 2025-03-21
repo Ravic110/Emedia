@@ -1,24 +1,61 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Site Web Responsif</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <form action="">
-        <label for="A" id="valeur de A">valeur de A</label>
-        <input type="number" name="A" id="valeur de A">
-        <br>
-        <label for="B" >valeur de B</label>
-        <input type="number" name="B" id="valeur de B">
-        <br>
-        <label for="C" >valeur de C</label>
-        <input type="number" name="C" id="valeur de C">
-        <br>
-        <button type="submit">calculer</button>
-        
-    </form>
+    <script src="vic.js"></script>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#">Accueil</a></li>
+                <li><a href="#">À propos</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section>
+            <h1>Bienvenue sur notre site web</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla auctor, vestibulum magna sed, convallis ex.</p>
+        </section>
+        <section>
+            <h2>Nos services</h2>
+            <ul>
+                <li>Service 1</li>
+                <li>Service 2</li>
+                <li>Service 3</li>
+            </ul>
+        </section>
+    </main>
+
+<form class="formulaire">
+    <h2 class="text1">Formulaire de contact</h2>
+    <div class="champ">
+        <label for="nom">Nom :</label>
+        <input type="text" id="nom" name="nom" required>
+    </div>
+    <div class="champ">
+        <label for="email">Email :</label>
+        <input type="email" id="email" name="email" required>
+    </div>
+    <div class="champ">
+        <label for="telephone">Téléphone :</label>
+        <input type="tel" id="telephone" name="telephone">
+    </div>
+    <div class="champ">
+        <label for="message">Message :</label>
+        <textarea id="message" name="message" required></textarea>
+    </div>
+    <div class="champ">
+        <input type="submit" value="Envoyer">
+    </div>
+</form>
+
 </body>
+
+
 </html>
