@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Leçon JavaScript — Emedia</title>
+    <link rel="stylesheet" href="../assets/css/style.css" />
+  </head>
+  <body>
+    <header>
+      <div class="navbar">
+        <div class="brand">Emedia</div>
+        <nav class="nav-links">
+          <a href="../index.html">Accueil</a>
+          <a href="html.html">HTML</a>
+          <a href="css.html">CSS</a>
+          <a href="js.html" class="active">JavaScript</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="main">
+      <section>
+        <h1>Introduction à JavaScript</h1>
+        <p>
+          JavaScript permet de rendre les pages web interactives. Il peut modifier le
+          contenu d'une page, réagir aux clics, et communiquer avec des serveurs.
+        </p>
+
+        <h2>Exemple : afficher un message</h2>
+        <p>
+          En JavaScript, on peut afficher du texte dans la console du navigateur ou
+          modifier le contenu d'un élément HTML.
+        </p>
+        <pre><code>const message = 'Bonjour depuis JavaScript!';
+console.log(message);
+document.getElementById('mon-titre').textContent = message;
+</code></pre>
+
+        <h2>Exercice : éditeur JavaScript</h2>
+        <p>
+          Modifiez le code ci-dessous pour voir comment JavaScript agit sur une page.
+          Cliquez sur <strong>Exécuter</strong> pour lancer votre script.
+        </p>
+
+        <div class="editor">
+          <div>
+            <label for="editor-html"><strong>HTML</strong></label>
+            <textarea id="editor-html">&lt;h2 id="mon-titre"&gt;Titre par défaut&lt;/h2&gt;
+&lt;p&gt;Ce paragraphe pourra être modifié par JavaScript.&lt;/p&gt;</textarea>
+
+            <label for="editor-js"><strong>JavaScript</strong></label>
+            <textarea id="editor-js">const titre = document.getElementById('mon-titre');
+
+titre.textContent = 'Bonjour ! Voici un titre modifié par JavaScript.';
+
+const paragraphe = document.querySelector('p');
+paragraphe.textContent = 'Vous pouvez modifier ce texte à volonté.';
+
+// Essayez : ajoutez un événement sur le titre !
+// titre.addEventListener('click', () => {
+//   alert('Vous avez cliqué sur le titre !');
+// });
+</textarea>
+
+            <button id="run-preview" class="btn">Exécuter</button>
+          </div>
+          <div class="preview">
+            <iframe title="Aperçu JavaScript" sandbox="allow-scripts"></iframe>
+          </div>
+        </div>
+
+        <h2>Exercice bonus : Devinez le nombre</h2>
+        <p>
+          Ce mini-jeu affiche un nombre aléatoire entre 0 et 100. Essayez de le deviner
+          en entrant un nombre et en appuyant sur Entrée.
+        </p>
+        <div id="guess-game" class="card" style="max-width: 480px;">
+          <h3>Jeu : Devinez le nombre</h3>
+          <p class="result"></p>
+          <p class="attempts"></p>
+          <div style="display:flex; gap:10px; flex-wrap:wrap; align-items:center;">
+            <input type="number" data-role="guess" placeholder="Entrez un nombre" />
+            <button data-action="start" class="btn">Recommencer</button>
+          </div>
+          <p style="margin-top:1rem; color: var(--muted);">
+            Appuyez sur <strong>Entrée</strong> pour valider votre proposition.
+          </p>
+        </div>
+
+        <h2>Prochaines étapes</h2>
+        <p>
+          Maintenant que vous savez modifier le DOM et exécuter du code, vous pouvez
+          explorer les APIs du navigateur (événements, formulaire, stockage local).
+        </p>
+      </section>
+    </main>
+
+    <footer>
+      <p>
+        © <span id="year"></span> Emedia — Cours JavaScript.
+      </p>
+    </footer>
+
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+    <script src="../assets/js/main.js"></script>
+  </body>
+</html>

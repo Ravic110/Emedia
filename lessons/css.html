@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Leçon CSS — Emedia</title>
+    <link rel="stylesheet" href="../assets/css/style.css" />
+  </head>
+  <body>
+    <header>
+      <div class="navbar">
+        <div class="brand">Emedia</div>
+        <nav class="nav-links">
+          <a href="../index.html">Accueil</a>
+          <a href="html.html">HTML</a>
+          <a href="css.html" class="active">CSS</a>
+          <a href="js.html">JavaScript</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="main">
+      <section>
+        <h1>Introduction au CSS</h1>
+        <p>
+          Le CSS (Cascading Style Sheets) permet d'ajouter du style aux pages HTML.
+          Il transforme une structure en quelque chose de plus lisible et attractif.
+        </p>
+
+        <h2>Comment lier du CSS à une page HTML</h2>
+        <p>
+          Vous pouvez lier un fichier CSS à votre page en ajoutant une balise
+          <code>&lt;link&gt;</code> dans la section <code>&lt;head&gt;</code>.
+        </p>
+        <pre><code>&lt;link rel="stylesheet" href="styles.css" /&gt;</code></pre>
+
+        <h2>Exercice : éditeur CSS</h2>
+        <p>
+          Modifiez le CSS ci-dessous pour changer la couleur, la taille de police, les
+          marges, et la mise en page. Cliquez sur <strong>Exécuter</strong> pour voir le résultat.
+        </p>
+
+        <div class="editor">
+          <div>
+            <label for="editor-html"><strong>HTML de base</strong></label>
+            <textarea id="editor-html">&lt;div class="carte"&gt;
+  &lt;h2&gt;Ma carte stylée&lt;/h2&gt;
+  &lt;p&gt;Changez le style de cette carte en modifiant le CSS.&lt;/p&gt;
+  &lt;button&gt;Cliquez-moi&lt;/button&gt;
+&lt;/div&gt;</textarea>
+
+            <label for="editor-css"><strong>CSS</strong></label>
+            <textarea id="editor-css">body {
+  background: #f0f4ff;
+  font-family: system-ui, sans-serif;
+}
+
+.carte {
+  padding: 1.6rem;
+  border-radius: 18px;
+  background: white;
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.08);
+  max-width: 350px;
+}
+
+.carte h2 {
+  margin-top: 0;
+}
+
+.carte button {
+  margin-top: 1rem;
+  padding: 0.7rem 1.2rem;
+  border-radius: 999px;
+  border: none;
+  background: #1d4ed8;
+  color: white;
+  cursor: pointer;
+}
+
+.carte button:hover {
+  background: #2563eb;
+}</textarea>
+
+            <button id="run-preview" class="btn">Exécuter</button>
+          </div>
+          <div class="preview">
+            <iframe title="Aperçu CSS" sandbox="allow-scripts"></iframe>
+          </div>
+        </div>
+
+        <h2>Prochaines étapes</h2>
+        <p>
+          Maintenant que vous pouvez styliser une carte, passez à JavaScript pour rendre
+          vos pages interactives.
+        </p>
+      </section>
+    </main>
+
+    <footer>
+      <p>
+        © <span id="year"></span> Emedia — Cours CSS.
+      </p>
+    </footer>
+
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+    <script src="../assets/js/main.js"></script>
+  </body>
+</html>

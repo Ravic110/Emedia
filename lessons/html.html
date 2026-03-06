@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Leçon HTML — Emedia</title>
+    <link rel="stylesheet" href="../assets/css/style.css" />
+  </head>
+  <body>
+    <header>
+      <div class="navbar">
+        <div class="brand">Emedia</div>
+        <nav class="nav-links">
+          <a href="../index.html">Accueil</a>
+          <a href="html.html" class="active">HTML</a>
+          <a href="css.html">CSS</a>
+          <a href="js.html">JavaScript</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="main">
+      <section>
+        <h1>Introduction au HTML</h1>
+        <p>
+          Le HTML (HyperText Markup Language) est le langage de base du Web. Il sert à
+          structurer le contenu d'une page : titres, paragraphes, liens, images, listes,
+          formulaires, etc.
+        </p>
+
+        <h2>Structure minimale</h2>
+        <p>Voici une page HTML complète avec les éléments de base :</p>
+        <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="fr"&gt;
+  &lt;head&gt;
+    &lt;meta charset="UTF-8" /&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0" /&gt;
+    &lt;title&gt;Ma première page&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;Bonjour le monde !&lt;/h1&gt;
+    &lt;p&gt;Ceci est une page HTML de démonstration.&lt;/p&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+        <h2>Exercice : éditeur HTML</h2>
+        <p>
+          Modifiez le code ci-dessous, puis cliquez sur <strong>Exécuter</strong> pour voir le résultat.
+          Vous pouvez changer les titres, ajouter des listes, ou insérer une image.
+        </p>
+
+        <div class="editor">
+          <div>
+            <label for="editor-html"><strong>Code HTML</strong></label>
+            <textarea id="editor-html">&lt;h1&gt;Bienvenue dans l'éditeur HTML&lt;/h1&gt;
+&lt;p&gt;Changez ce texte pour voir le résultat dans la prévisualisation.&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;HTML est la structure&lt;/li&gt;
+  &lt;li&gt;CSS est le style&lt;/li&gt;
+  &lt;li&gt;JavaScript est l'interactivité&lt;/li&gt;
+&lt;/ul&gt;</textarea>
+            <button id="run-preview" class="btn">Exécuter</button>
+          </div>
+          <div class="preview">
+            <iframe title="Aperçu HTML" sandbox="allow-scripts"></iframe>
+          </div>
+        </div>
+
+        <h2>Prochaines étapes</h2>
+        <p>
+          Maintenant que vous savez créer une page HTML, passez à la leçon CSS pour
+          apprendre à la rendre jolie et responsive.
+        </p>
+      </section>
+    </main>
+
+    <footer>
+      <p>
+        © <span id="year"></span> Emedia — Cours HTML.
+      </p>
+    </footer>
+
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+    <script src="../assets/js/main.js"></script>
+  </body>
+</html>

@@ -1,61 +1,80 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Site Web Responsif</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <script src="vic.js"></script>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Emedia — Cours de développement web</title>
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+  <body>
     <header>
-        <nav>
-            <ul>
-                <li><a href="#">Accueil</a></li>
-                <li><a href="#">À propos</a></li>
-                <li><a href="#">Contact</a></li>
-            </ul>
+      <div class="navbar">
+        <div class="brand">Emedia</div>
+        <nav class="nav-links">
+          <a href="index.html">Accueil</a>
+          <a href="lessons/html.html">HTML</a>
+          <a href="lessons/css.html">CSS</a>
+          <a href="lessons/js.html">JavaScript</a>
         </nav>
+      </div>
     </header>
-    <main>
-        <section>
-            <h1>Bienvenue sur notre site web</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla auctor, vestibulum magna sed, convallis ex.</p>
-        </section>
-        <section>
-            <h2>Nos services</h2>
-            <ul>
-                <li>Service 1</li>
-                <li>Service 2</li>
-                <li>Service 3</li>
-            </ul>
-        </section>
+
+    <main class="main">
+      <section class="hero">
+        <div>
+          <h1>Apprenez le développement web, étape par étape</h1>
+          <p>
+            Ce site est conçu pour vos élèves : ils peuvent lire, tester et modifier du
+            code directement depuis le navigateur.
+          </p>
+          <p>
+            Commencez par apprendre les bases du HTML, ajoutez du style avec le CSS,
+            puis rendez vos pages interactives avec JavaScript.
+          </p>
+          <a class="btn" href="lessons/html.html">Commencer le HTML</a>
+        </div>
+        <div>
+          <img
+            src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1200&q=80"
+            alt="Code sur un écran"
+            style="width:100%;border-radius:16px;box-shadow:var(--shadow);"
+          />
+        </div>
+      </section>
+
+      <section>
+        <h2>Choisissez un module</h2>
+        <div class="card-grid">
+          <article class="card">
+            <h2>✅ HTML</h2>
+            <p>Structurez une page web avec des balises, des titres, des listes et des formulaires.</p>
+            <a class="btn" href="/lessons/html.html">Voir le cours</a>
+          </article>
+
+          <article class="card">
+            <h2>✅ CSS</h2>
+            <p>Ajoutez du style, des couleurs et des mises en page responsives à vos pages.</p>
+            <a class="btn" href="/lessons/css.html">Voir le cours</a>
+          </article>
+
+          <article class="card">
+            <h2>✅ JavaScript</h2>
+            <p>Rendez vos pages dynamiques : interagissez avec l'utilisateur et modifiez le DOM.</p>
+            <a class="btn" href="/lessons/js.html">Voir le cours</a>
+          </article>
+        </div>
+      </section>
     </main>
 
-<form class="formulaire">
-    <h2 class="text1">Formulaire de contact</h2>
-    <div class="champ">
-        <label for="nom">Nom :</label>
-        <input type="text" id="nom" name="nom" required>
-    </div>
-    <div class="champ">
-        <label for="email">Email :</label>
-        <input type="email" id="email" name="email" required>
-    </div>
-    <div class="champ">
-        <label for="telephone">Téléphone :</label>
-        <input type="tel" id="telephone" name="telephone">
-    </div>
-    <div class="champ">
-        <label for="message">Message :</label>
-        <textarea id="message" name="message" required></textarea>
-    </div>
-    <div class="champ">
-        <input type="submit" value="Envoyer">
-    </div>
-</form>
+    <footer>
+      <p>
+        © <span id="year"></span> Emedia — Conçu pour l'apprentissage. Hébergement statique prêt pour Netlify.
+      </p>
+    </footer>
 
-</body>
-
-
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+    <script src="assets/js/main.js"></script>
+  </body>
 </html>
