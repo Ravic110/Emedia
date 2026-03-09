@@ -1,14 +1,19 @@
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Space+Grotesk:wght@400;500;700&display=swap");
+
 /* === Styles globaux === */
 :root {
-  --primary: #1d4ed8;
-  --primary-2: #2563eb;
-  --bg: #f5f7fb;
-  --surface: #ffffff;
-  --text: #0f172a;
-  --muted: #475569;
+  --primary: #00a8ff;
+  --primary-2: #00d1c7;
+  --accent: #14f1ff;
+  --bg: #04111d;
+  --bg-2: #0a1c2b;
+  --surface: rgba(9, 24, 39, 0.76);
+  --surface-strong: rgba(10, 31, 50, 0.92);
+  --text: #e5f4ff;
+  --muted: #9bb6c9;
   --radius: 16px;
-  --shadow: 0 14px 25px rgba(15, 23, 42, 0.08);
-  --code: #111827;
+  --shadow: 0 20px 45px rgba(0, 12, 20, 0.45);
+  --code: #03121f;
 }
 
 * {
@@ -17,10 +22,45 @@
 
 body {
   margin: 0;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-family: "Space Grotesk", "Avenir Next", "Segoe UI", sans-serif;
   color: var(--text);
-  background: var(--bg);
+  background:
+    radial-gradient(circle at 15% 20%, rgba(20, 241, 255, 0.16), transparent 35%),
+    radial-gradient(circle at 85% 12%, rgba(0, 168, 255, 0.19), transparent 38%),
+    linear-gradient(140deg, var(--bg), var(--bg-2));
   line-height: 1.5;
+  min-height: 100vh;
+  animation: bgShift 12s ease-in-out infinite alternate;
+  position: relative;
+}
+
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+}
+
+body::before {
+  background-image:
+    linear-gradient(rgba(20, 241, 255, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(20, 241, 255, 0.08) 1px, transparent 1px);
+  background-size: 36px 36px, 36px 36px;
+  transform: perspective(700px) rotateX(45deg) scale(1.4);
+  transform-origin: center bottom;
+  opacity: 0.35;
+  animation: gridDrift 18s linear infinite;
+}
+
+body::after {
+  background:
+    radial-gradient(circle at 50% 0%, rgba(20, 241, 255, 0.2), transparent 40%),
+    linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.06) 50%, transparent 100%);
+  mix-blend-mode: screen;
+  opacity: 0.32;
+  animation: sweepLight 9s ease-in-out infinite;
 }
 
 a {
@@ -33,13 +73,15 @@ a:hover {
 }
 
 header {
-  background: linear-gradient(120deg, var(--primary), var(--primary-2));
-  color: #fff;
+  background: linear-gradient(120deg, rgba(0, 168, 255, 0.32), rgba(0, 209, 199, 0.2));
+  color: var(--text);
   padding: 18px 24px;
   position: sticky;
   top: 0;
   z-index: 100;
-  box-shadow: 0 4px 12px rgba(13, 42, 106, 0.25);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(120, 223, 255, 0.22);
 }
 
 .navbar {
@@ -54,7 +96,11 @@ header {
 .brand {
   font-weight: 700;
   font-size: 1.25rem;
-  letter-spacing: 0.01em;
+  font-family: "Orbitron", "Space Grotesk", sans-serif;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #dff8ff;
+  text-shadow: 0 0 18px rgba(20, 241, 255, 0.35);
 }
 
 .nav-links {
@@ -68,11 +114,16 @@ header {
   padding: 0.5rem 0.8rem;
   border-radius: 999px;
   font-weight: 600;
+  color: #d6efff;
+  border: 1px solid transparent;
+  transition: all 180ms ease;
 }
 
 .nav-links a.active,
 .nav-links a:hover {
-  background: rgba(255, 255, 255, 0.18);
+  background: rgba(18, 49, 73, 0.68);
+  border-color: rgba(100, 225, 255, 0.45);
+  text-decoration: none;
 }
 
 .main {
@@ -91,6 +142,9 @@ header {
 .hero h1 {
   font-size: clamp(2.1rem, 4vw, 3rem);
   margin: 0;
+  font-family: "Orbitron", "Space Grotesk", sans-serif;
+  letter-spacing: 0.02em;
+  text-wrap: balance;
 }
 
 .hero p {
@@ -107,16 +161,27 @@ header {
   border-radius: 999px;
   border: none;
   padding: 0.85rem 1.35rem;
-  background: var(--primary);
-  color: white;
+  background: linear-gradient(115deg, var(--primary), var(--primary-2));
+  color: #00131d;
   font-weight: 700;
   cursor: pointer;
-  transition: transform 150ms ease, background 150ms ease;
+  transition: transform 150ms ease, filter 150ms ease, box-shadow 150ms ease;
+  box-shadow: 0 10px 24px rgba(20, 241, 255, 0.2);
+  text-decoration: none;
 }
 
 .btn:hover {
-  background: var(--primary-2);
   transform: translateY(-1px);
+  filter: brightness(1.08);
+  box-shadow: 0 14px 26px rgba(20, 241, 255, 0.28);
+  text-decoration: none;
+}
+
+.btn:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
 }
 
 .card-grid {
@@ -131,7 +196,42 @@ header {
   padding: 1.6rem;
   border-radius: var(--radius);
   box-shadow: var(--shadow);
-  border: 1px solid rgba(15, 23, 42, 0.06);
+  border: 1px solid rgba(116, 221, 255, 0.2);
+  backdrop-filter: blur(8px);
+  transition: transform 180ms ease, border-color 180ms ease;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(116, 221, 255, 0.55);
+}
+
+.main > section {
+  opacity: 0;
+  transform: translateY(14px);
+  animation: sectionReveal 650ms ease forwards;
+}
+
+.main > section:nth-of-type(2) {
+  animation-delay: 120ms;
+}
+
+.card-grid .card {
+  opacity: 0;
+  transform: translateY(18px) scale(0.985);
+  animation: cardReveal 520ms ease forwards;
+}
+
+.card-grid .card:nth-child(1) {
+  animation-delay: 120ms;
+}
+
+.card-grid .card:nth-child(2) {
+  animation-delay: 220ms;
+}
+
+.card-grid .card:nth-child(3) {
+  animation-delay: 320ms;
 }
 
 .card h2 {
@@ -147,6 +247,8 @@ footer {
   text-align: center;
   color: var(--muted);
   font-size: 0.95rem;
+  border-top: 1px solid rgba(116, 221, 255, 0.18);
+  background: rgba(5, 16, 27, 0.55);
 }
 
 /* Code blocks */
@@ -158,12 +260,13 @@ code {
 pre {
   padding: 1rem;
   border-radius: 14px;
-  background: #111827;
-  color: #f8fafc;
+  background: #03101d;
+  color: #dff5ff;
   overflow-x: auto;
   font-size: 0.9rem;
   line-height: 1.5;
   margin: 1rem 0;
+  border: 1px solid rgba(120, 223, 255, 0.22);
 }
 
 code {
@@ -176,37 +279,232 @@ code {
 .editor {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 1rem;
+  gap: 1.1rem;
+}
+
+.editor label {
+  display: inline-block;
+  margin: 0.2rem 0 0.45rem;
+  color: #d9f2ff;
+  font-size: 0.95rem;
+  letter-spacing: 0.01em;
 }
 
 .editor textarea {
   width: 100%;
-  min-height: 220px;
-  padding: 1rem;
-  border: 1px solid rgba(15, 23, 42, 0.2);
+  min-height: 260px;
+  padding: 1rem 1.05rem;
+  border: 1px solid rgba(120, 223, 255, 0.25);
   border-radius: 14px;
-  background: rgba(255, 255, 255, 0.9);
+  background: rgba(8, 26, 42, 0.72);
+  color: #dbf5ff;
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-  font-size: 0.95rem;
+  font-size: 1rem;
+  line-height: 1.6;
+  letter-spacing: 0.01em;
   resize: vertical;
+  transition: border-color 140ms ease, box-shadow 140ms ease;
+  caret-color: #14f1ff;
+}
+
+.editor textarea:focus {
+  outline: none;
+  border-color: rgba(20, 241, 255, 0.8);
+  box-shadow: 0 0 0 3px rgba(20, 241, 255, 0.2);
 }
 
 .editor button {
   align-self: start;
   width: max-content;
+  margin-top: 0.2rem;
 }
 
 .preview {
-  border: 1px solid rgba(15, 23, 42, 0.2);
+  border: 1px solid rgba(120, 223, 255, 0.28);
   border-radius: 14px;
   overflow: hidden;
-  height: 240px;
+  height: 340px;
+  background: #ffffff;
 }
 
 .preview iframe {
   width: 100%;
   height: 100%;
   border: 0;
+  background: #ffffff;
+}
+
+.hero-image {
+  width: 100%;
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+}
+
+.guess-game {
+  max-width: 480px;
+}
+
+.guess-controls {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.guess-controls input,
+.guess-meta select {
+  background: rgba(8, 26, 42, 0.82);
+  color: #dbf5ff;
+  border: 1px solid rgba(120, 223, 255, 0.35);
+  border-radius: 10px;
+  padding: 0.62rem 0.75rem;
+  font-size: 0.95rem;
+}
+
+.guess-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  margin: 0.55rem 0;
+}
+
+.guess-meta label {
+  color: #d9f2ff;
+  font-weight: 600;
+}
+
+.hint {
+  min-height: 1.35rem;
+  font-weight: 600;
+  margin: 0.2rem 0 0.25rem;
+}
+
+.score {
+  margin: 0.2rem 0 0.55rem;
+  color: #c2e9ff;
+}
+
+.guess-progress {
+  width: 100%;
+  height: 8px;
+  border-radius: 999px;
+  background: rgba(120, 223, 255, 0.15);
+  overflow: hidden;
+  margin: 0.3rem 0 0.9rem;
+}
+
+.guess-progress-bar {
+  display: block;
+  height: 100%;
+  width: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #14f1ff, #00a8ff);
+  transition: width 220ms ease;
+}
+
+.guess-history-title {
+  margin: 0.9rem 0 0.4rem;
+  color: #cdefff;
+  font-weight: 600;
+}
+
+.guess-history {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.35rem;
+  max-height: 138px;
+  overflow: auto;
+}
+
+.guess-history li {
+  background: rgba(7, 23, 36, 0.65);
+  border: 1px solid rgba(120, 223, 255, 0.2);
+  border-radius: 10px;
+  padding: 0.4rem 0.55rem;
+  font-size: 0.9rem;
+  color: #d8f3ff;
+}
+
+.guess-good {
+  color: #86ffcf;
+}
+
+.guess-warn {
+  color: #ffd28d;
+}
+
+.guess-bad {
+  color: #ff9c9c;
+}
+
+.guess-help {
+  margin-top: 1rem;
+  color: var(--muted);
+}
+
+@keyframes bgShift {
+  from {
+    background-position: 0% 0%, 100% 0%, 0% 0%;
+  }
+  to {
+    background-position: 10% 8%, 88% 12%, 100% 100%;
+  }
+}
+
+@keyframes gridDrift {
+  from {
+    background-position: 0 0, 0 0;
+  }
+  to {
+    background-position: 0 36px, 36px 0;
+  }
+}
+
+@keyframes sweepLight {
+  0% {
+    transform: translateX(-18%);
+    opacity: 0.18;
+  }
+  50% {
+    transform: translateX(8%);
+    opacity: 0.32;
+  }
+  100% {
+    transform: translateX(28%);
+    opacity: 0.14;
+  }
+}
+
+@keyframes sectionReveal {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes cardReveal {
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body,
+  body::before,
+  body::after,
+  .main > section,
+  .card-grid .card {
+    animation: none !important;
+  }
+
+  .main > section,
+  .card-grid .card {
+    opacity: 1;
+    transform: none;
+  }
 }
 
 @media (min-width: 720px) {
@@ -216,5 +514,16 @@ code {
 
   .editor {
     grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 719px) {
+  .editor textarea {
+    min-height: 220px;
+    font-size: 0.97rem;
+  }
+
+  .preview {
+    height: 300px;
   }
 }

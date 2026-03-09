@@ -1,15 +1,18 @@
-commande Git
-sous line de commande {ps, cmd}
+Commandes Git (référence)
+
+```sh
 git clone https://github.com/Ravic110/Emedia.git
-
 git status
-
-git add . \ git add {nom des fichiers}
-
+git add .
+# ou:
+git add <nom-du-fichier>
 git commit -m "commentaire"
 git push
+```
 
+Configuration utilisateur Git
 
-git config --global username 'username'
-
-git config --global useremail 'email'
+```sh
+git config --global user.name "username"
+git config --global user.email "email@example.com"
+```

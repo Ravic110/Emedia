@@ -63,7 +63,7 @@ paragraphe.textContent = 'Vous pouvez modifier ce texte à volonté.';
 // });
 </textarea>
 
-            <button id="run-preview" class="btn">Exécuter</button>
+            <button id="run-preview" class="btn" type="button">Exécuter</button>
           </div>
           <div class="preview">
             <iframe title="Aperçu JavaScript" sandbox="allow-scripts"></iframe>
@@ -75,15 +75,31 @@ paragraphe.textContent = 'Vous pouvez modifier ce texte à volonté.';
           Ce mini-jeu affiche un nombre aléatoire entre 0 et 100. Essayez de le deviner
           en entrant un nombre et en appuyant sur Entrée.
         </p>
-        <div id="guess-game" class="card" style="max-width: 480px;">
+        <div id="guess-game" class="card guess-game">
           <h3>Jeu : Devinez le nombre</h3>
           <p class="result"></p>
+          <p class="hint"></p>
           <p class="attempts"></p>
-          <div style="display:flex; gap:10px; flex-wrap:wrap; align-items:center;">
-            <input type="number" data-role="guess" placeholder="Entrez un nombre" />
-            <button data-action="start" class="btn">Recommencer</button>
+          <p class="score"></p>
+          <div class="guess-meta">
+            <label for="guess-difficulty">Niveau</label>
+            <select id="guess-difficulty" data-role="difficulty">
+              <option value="easy">Facile (0-50, 12 essais)</option>
+              <option value="normal" selected>Normal (0-100, 10 essais)</option>
+              <option value="hard">Difficile (0-200, 8 essais)</option>
+            </select>
           </div>
-          <p style="margin-top:1rem; color: var(--muted);">
+          <div class="guess-progress" aria-hidden="true">
+            <span class="guess-progress-bar"></span>
+          </div>
+          <div class="guess-controls">
+            <input type="number" data-role="guess" placeholder="Entrez un nombre" aria-label="Nombre à deviner" />
+            <button data-action="check" class="btn" type="button">Tester</button>
+            <button data-action="start" class="btn" type="button">Recommencer</button>
+          </div>
+          <p class="guess-history-title">Historique</p>
+          <ul class="guess-history" data-role="history"></ul>
+          <p class="guess-help">
             Appuyez sur <strong>Entrée</strong> pour valider votre proposition.
           </p>
         </div>
