@@ -79,6 +79,8 @@ header {
   position: sticky;
   top: 0;
   z-index: 100;
+  /* Ancrage pour le menu mobile déroulant */
+  isolation: isolate;
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.35);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid rgba(120, 223, 255, 0.22);
@@ -101,6 +103,44 @@ header {
   text-transform: uppercase;
   color: #dff8ff;
   text-shadow: 0 0 18px rgba(20, 241, 255, 0.35);
+}
+
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 8px;
+  transition: background 150ms ease;
+}
+
+.nav-toggle:hover {
+  background: rgba(20, 241, 255, 0.1);
+}
+
+.nav-toggle span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: #d6efff;
+  border-radius: 2px;
+  transition: transform 250ms ease, opacity 250ms ease;
+}
+
+.nav-toggle[aria-expanded="true"] span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.nav-toggle[aria-expanded="true"] span:nth-child(2) {
+  opacity: 0;
+}
+
+.nav-toggle[aria-expanded="true"] span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
 }
 
 .nav-links {
@@ -203,6 +243,12 @@ header {
 
 .card:hover {
   transform: translateY(-3px);
+  border-color: rgba(116, 221, 255, 0.55);
+}
+
+.card:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
   border-color: rgba(116, 221, 255, 0.55);
 }
 
@@ -518,6 +564,34 @@ code {
 }
 
 @media (max-width: 719px) {
+  .nav-toggle {
+    display: flex;
+  }
+
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    gap: 0.3rem;
+    padding: 1rem 1.5rem;
+    background: rgba(4, 17, 29, 0.97);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(120, 223, 255, 0.18);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  .nav-links a {
+    justify-content: flex-start;
+    padding: 0.6rem 0.8rem;
+  }
+
   .editor textarea {
     min-height: 220px;
     font-size: 0.97rem;

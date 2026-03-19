@@ -1,0 +1,111 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" role="img" aria-label="Illustration développement web">
+  <!-- Fond -->
+  <rect width="600" height="400" rx="20" fill="#04111d"/>
+
+  <!-- Grille de fond -->
+  <defs>
+    <pattern id="grid" width="30" height="30" patternUnits="userSpaceOnUse">
+      <path d="M 30 0 L 0 0 0 30" fill="none" stroke="rgba(20,241,255,0.07)" stroke-width="1"/>
+    </pattern>
+    <linearGradient id="cyan" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#14f1ff"/>
+      <stop offset="100%" style="stop-color:#00a8ff"/>
+    </linearGradient>
+    <linearGradient id="orange" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#ff9c3a"/>
+      <stop offset="100%" style="stop-color:#ff6b6b"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="400" rx="20" fill="url(#grid)"/>
+
+  <!-- Fenêtre éditeur -->
+  <rect x="30" y="30" width="330" height="240" rx="12" fill="rgba(10,28,43,0.95)" stroke="rgba(20,241,255,0.3)" stroke-width="1.5"/>
+  <!-- Barre titre -->
+  <rect x="30" y="30" width="330" height="32" rx="12" fill="rgba(5,20,35,0.9)"/>
+  <rect x="30" y="50" width="330" height="12" fill="rgba(5,20,35,0.9)"/>
+  <!-- Boutons fenêtre -->
+  <circle cx="52" cy="46" r="6" fill="#ff5f57"/>
+  <circle cx="72" cy="46" r="6" fill="#ffbd2e"/>
+  <circle cx="92" cy="46" r="6" fill="#28c840"/>
+  <!-- Titre onglet -->
+  <text x="120" y="50" font-family="monospace" font-size="12" fill="rgba(200,230,255,0.6)">index.html</text>
+
+  <!-- Lignes de code HTML -->
+  <text x="48" y="82" font-family="monospace" font-size="12" fill="rgba(150,200,255,0.5)">1</text>
+  <text x="68" y="82" font-family="monospace" font-size="12" fill="#ff9c3a">&lt;!</text><text x="86" y="82" font-family="monospace" font-size="12" fill="#14f1ff">DOCTYPE html</text><text x="210" y="82" font-family="monospace" font-size="12" fill="#ff9c3a">&gt;</text>
+
+  <text x="48" y="102" font-family="monospace" font-size="12" fill="rgba(150,200,255,0.5)">2</text>
+  <text x="68" y="102" font-family="monospace" font-size="12" fill="#ff9c3a">&lt;</text><text x="76" y="102" font-family="monospace" font-size="12" fill="#14f1ff">html</text><text x="114" y="102" font-family="monospace" font-size="12" fill="#86ffcf">lang</text><text x="150" y="102" font-family="monospace" font-size="12" fill="rgba(200,230,255,0.8)">="fr"</text><text x="190" y="102" font-family="monospace" font-size="12" fill="#ff9c3a">&gt;</text>
+
+  <text x="48" y="122" font-family="monospace" font-size="12" fill="rgba(150,200,255,0.5)">3</text>
+  <text x="82" y="122" font-family="monospace" font-size="12" fill="#ff9c3a">&lt;</text><text x="90" y="122" font-family="monospace" font-size="12" fill="#14f1ff">head</text><text x="126" y="122" font-family="monospace" font-size="12" fill="#ff9c3a">&gt;</text>
+
+  <text x="48" y="142" font-family="monospace" font-size="12" fill="rgba(150,200,255,0.5)">4</text>
+  <text x="96" y="142" font-family="monospace" font-size="12" fill="#ff9c3a">&lt;</text><text x="104" y="142" font-family="monospace" font-size="12" fill="#14f1ff">title</text><text x="140" y="142" font-family="monospace" font-size="12" fill="#ff9c3a">&gt;</text>
+  <text x="166" y="142" font-family="monospace" font-size="12" fill="rgba(220,240,255,0.9)">Emedia</text>
+  <text x="216" y="142" font-family="monospace" font-size="12" fill="#ff9c3a">&lt;/</text><text x="232" y="142" font-family="monospace" font-size="12" fill="#14f1ff">title</text><text x="268" y="142" font-family="monospace" font-size="12" fill="#ff9c3a">&gt;</text>
+
+  <text x="48" y="162" font-family="monospace" font-size="12" fill="rgba(150,200,255,0.5)">5</text>
+  <text x="82" y="162" font-family="monospace" font-size="12" fill="#ff9c3a">&lt;/</text><text x="98" y="162" font-family="monospace" font-size="12" fill="#14f1ff">head</text><text x="134" y="162" font-family="monospace" font-size="12" fill="#ff9c3a">&gt;</text>
+
+  <!-- CSS snippet -->
+  <text x="48" y="185" font-family="monospace" font-size="12" fill="rgba(150,200,255,0.5)">6</text>
+  <text x="68" y="185" font-family="monospace" font-size="12" fill="#86ffcf">body</text>
+  <text x="102" y="185" font-family="monospace" font-size="12" fill="rgba(220,240,255,0.8)"> {</text>
+
+  <text x="48" y="205" font-family="monospace" font-size="12" fill="rgba(150,200,255,0.5)">7</text>
+  <text x="82" y="205" font-family="monospace" font-size="12" fill="#14f1ff">color</text>
+  <text x="118" y="205" font-family="monospace" font-size="12" fill="rgba(220,240,255,0.8)">:</text>
+  <text x="130" y="205" font-family="monospace" font-size="12" fill="#ffd28d"> #e5f4ff;</text>
+
+  <text x="48" y="225" font-family="monospace" font-size="12" fill="rgba(150,200,255,0.5)">8</text>
+  <text x="68" y="225" font-family="monospace" font-size="12" fill="rgba(220,240,255,0.8)">}</text>
+
+  <!-- Curseur clignotant -->
+  <rect x="86" y="214" width="7" height="14" rx="1" fill="#14f1ff" opacity="0.9">
+    <animate attributeName="opacity" values="0.9;0;0.9" dur="1.2s" repeatCount="indefinite"/>
+  </rect>
+
+  <!-- Fenêtre prévisualisation -->
+  <rect x="380" y="30" width="190" height="160" rx="12" fill="white" stroke="rgba(20,241,255,0.25)" stroke-width="1.5"/>
+  <!-- Barre titre preview -->
+  <rect x="380" y="30" width="190" height="28" rx="12" fill="#f1f5f9"/>
+  <rect x="380" y="46" width="190" height="12" fill="#f1f5f9"/>
+  <!-- Cercles preview -->
+  <circle cx="396" cy="44" r="5" fill="#e2e8f0"/>
+  <circle cx="412" cy="44" r="5" fill="#e2e8f0"/>
+  <circle cx="428" cy="44" r="5" fill="#e2e8f0"/>
+  <!-- Contenu preview simulé -->
+  <rect x="396" y="68" width="80" height="10" rx="3" fill="#1e293b"/>
+  <rect x="396" y="86" width="155" height="6" rx="2" fill="#94a3b8"/>
+  <rect x="396" y="98" width="130" height="6" rx="2" fill="#94a3b8"/>
+  <rect x="396" y="118" width="70" height="24" rx="12" fill="#1d4ed8"/>
+  <text x="431" y="134" text-anchor="middle" font-family="sans-serif" font-size="9" font-weight="bold" fill="white">Commencer</text>
+
+  <!-- Flèche entre éditeur et preview -->
+  <path d="M 365 120 L 375 120" stroke="rgba(20,241,255,0.6)" stroke-width="2" stroke-dasharray="4 2"/>
+  <polygon points="376,116 384,120 376,124" fill="rgba(20,241,255,0.6)"/>
+
+  <!-- Étiquette HTML -->
+  <rect x="44" y="290" width="60" height="26" rx="8" fill="rgba(255,156,58,0.15)" stroke="rgba(255,156,58,0.5)" stroke-width="1"/>
+  <text x="74" y="307" text-anchor="middle" font-family="monospace" font-size="12" font-weight="bold" fill="#ff9c3a">HTML</text>
+
+  <!-- Étiquette CSS -->
+  <rect x="120" y="290" width="52" height="26" rx="8" fill="rgba(20,241,255,0.12)" stroke="rgba(20,241,255,0.4)" stroke-width="1"/>
+  <text x="146" y="307" text-anchor="middle" font-family="monospace" font-size="12" font-weight="bold" fill="#14f1ff">CSS</text>
+
+  <!-- Étiquette JS -->
+  <rect x="188" y="290" width="44" height="26" rx="8" fill="rgba(255,210,141,0.15)" stroke="rgba(255,210,141,0.5)" stroke-width="1"/>
+  <text x="210" y="307" text-anchor="middle" font-family="monospace" font-size="12" font-weight="bold" fill="#ffd28d">JS</text>
+
+  <!-- Texte principal -->
+  <text x="300" y="355" text-anchor="middle" font-family="sans-serif" font-size="15" font-weight="bold" fill="rgba(229,244,255,0.9)">Apprenez par la pratique</text>
+  <text x="300" y="376" text-anchor="middle" font-family="sans-serif" font-size="11" fill="rgba(155,182,201,0.8)">Éditeur live · Prévisualisation instantanée</text>
+
+  <!-- Points lumineux décoratifs -->
+  <circle cx="510" cy="290" r="3" fill="#14f1ff" opacity="0.7"/>
+  <circle cx="540" cy="310" r="2" fill="#00a8ff" opacity="0.5"/>
+  <circle cx="565" cy="280" r="4" fill="#14f1ff" opacity="0.4"/>
+  <circle cx="490" cy="330" r="2" fill="#86ffcf" opacity="0.6"/>
+  <circle cx="555" cy="350" r="3" fill="#00a8ff" opacity="0.5"/>
+</svg>

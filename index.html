@@ -4,13 +4,23 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Emedia — Cours de développement web</title>
+    <meta name="description" content="Apprenez le développement web en pratiquant : HTML, CSS et JavaScript directement dans votre navigateur." />
+    <meta name="keywords" content="HTML, CSS, JavaScript, développement web, apprendre, cours, éditeur en ligne" />
+    <meta property="og:title" content="Emedia — Cours de développement web" />
+    <meta property="og:description" content="Apprenez le développement web en pratiquant : HTML, CSS et JavaScript directement dans votre navigateur." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="assets/img/hero.svg" />
+    <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg" />
     <link rel="stylesheet" href="assets/css/style.css" />
   </head>
   <body>
     <header>
       <div class="navbar">
         <div class="brand">Emedia</div>
-        <nav class="nav-links">
+        <button class="nav-toggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="nav-links" type="button">
+          <span></span><span></span><span></span>
+        </button>
+        <nav class="nav-links" id="nav-links">
           <a href="index.html">Accueil</a>
           <a href="lessons/html.html">HTML</a>
           <a href="lessons/css.html">CSS</a>
@@ -35,8 +45,8 @@
         </div>
         <div>
           <img
-            src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1200&q=80"
-            alt="Code sur un écran"
+            src="assets/img/hero.svg"
+            alt="Illustration d'un éditeur de code avec prévisualisation"
             class="hero-image"
           />
         </div>

@@ -4,13 +4,21 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Leçon JavaScript — Emedia</title>
+    <meta name="description" content="Apprenez JavaScript : rendez vos pages interactives, manipulez le DOM et créez des mini-jeux." />
+    <meta property="og:title" content="Leçon JavaScript — Emedia" />
+    <meta property="og:description" content="Apprenez JavaScript : rendez vos pages interactives, manipulez le DOM et créez des mini-jeux." />
+    <meta property="og:type" content="article" />
+    <link rel="icon" type="image/svg+xml" href="../assets/img/favicon.svg" />
     <link rel="stylesheet" href="../assets/css/style.css" />
   </head>
   <body>
     <header>
       <div class="navbar">
         <div class="brand">Emedia</div>
-        <nav class="nav-links">
+        <button class="nav-toggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="nav-links" type="button">
+          <span></span><span></span><span></span>
+        </button>
+        <nav class="nav-links" id="nav-links">
           <a href="../index.html">Accueil</a>
           <a href="html.html">HTML</a>
           <a href="css.html">CSS</a>

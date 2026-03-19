@@ -1,5 +1,8 @@
 /* Utility functions for the learning site */
 
+const DEBOUNCE_DELAY = 350;
+const MAX_HISTORY = 8;
+
 function safeHtml(html) {
   // Minimal sanitization: escape </script> sequences to avoid breaking the editor.
   return html.replace(/<\/script>/gi, "<\\/script>");
@@ -90,7 +93,7 @@ function connectEditor({ htmlEl, cssEl, jsEl, previewBtn }) {
   let timeout;
   const schedule = () => {
     clearTimeout(timeout);
-    timeout = setTimeout(update, 350);
+    timeout = setTimeout(update, DEBOUNCE_DELAY);
   };
 
   if (htmlEl) htmlEl.addEventListener("input", schedule);
@@ -99,6 +102,27 @@ function connectEditor({ htmlEl, cssEl, jsEl, previewBtn }) {
 
   // Initial render
   update();
+}
+
+function initMobileNav() {
+  const toggle = document.querySelector(".nav-toggle");
+  const nav = document.querySelector(".nav-links");
+  if (!toggle || !nav) return;
+
+  toggle.addEventListener("click", () => {
+    const isOpen = nav.classList.toggle("open");
+    toggle.setAttribute("aria-expanded", String(isOpen));
+    toggle.setAttribute("aria-label", isOpen ? "Fermer le menu" : "Ouvrir le menu");
+  });
+
+  // Fermer le menu si on clique sur un lien
+  nav.addEventListener("click", (e) => {
+    if (e.target.tagName === "A") {
+      nav.classList.remove("open");
+      toggle.setAttribute("aria-expanded", "false");
+      toggle.setAttribute("aria-label", "Ouvrir le menu");
+    }
+  });
 }
 
 function setActiveNav() {
@@ -169,14 +193,34 @@ function initGuessNumberGame() {
     hard: { min: 0, max: 200, tries: 8 },
   };
 
+  const SCORE_KEY = "emedia_game_score";
+
+  const loadScore = () => {
+    try {
+      const saved = localStorage.getItem(SCORE_KEY);
+      return saved ? JSON.parse(saved) : { wins: 0, losses: 0, streak: 0 };
+    } catch {
+      return { wins: 0, losses: 0, streak: 0 };
+    }
+  };
+
+  const saveScore = () => {
+    try {
+      localStorage.setItem(SCORE_KEY, JSON.stringify({ wins, losses, streak }));
+    } catch {
+      // localStorage non disponible (navigation privée, etc.)
+    }
+  };
+
+  const saved = loadScore();
   let target = 0;
   let remaining = 0;
   let totalTries = 0;
   let min = 0;
   let max = 100;
-  let wins = 0;
-  let losses = 0;
-  let streak = 0;
+  let wins = saved.wins;
+  let losses = saved.losses;
+  let streak = saved.streak;
   let history = [];
 
   const setHintState = (text, stateClass) => {
@@ -205,6 +249,7 @@ function initGuessNumberGame() {
 
   const updateScore = () => {
     score.textContent = `Score: ${wins} victoire(s), ${losses} défaite(s), série: ${streak}`;
+    saveScore();
   };
 
   const updateProgress = () => {
@@ -291,7 +336,7 @@ function initGuessNumberGame() {
         ? `${value} : votre proposition est trop grande, essayez un nombre plus petit.`
         : `${value} : votre proposition est trop petite, essayez un nombre plus grand.`
     );
-    if (history.length > 8) history.pop();
+    if (history.length > MAX_HISTORY) history.pop();
     renderHistory();
 
     if (remaining <= 0) {
@@ -324,7 +369,7 @@ function initGuessNumberGame() {
 }
 
 function init() {
-  const steps = [setActiveNav, initLessonEditors, initGuessNumberGame];
+  const steps = [initMobileNav, setActiveNav, initLessonEditors, initGuessNumberGame];
   steps.forEach((step) => {
     try {
       step();
